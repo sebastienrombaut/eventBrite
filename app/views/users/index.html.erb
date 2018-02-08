@@ -1,3 +1,4 @@
+<div align="center">
 <h1>Index des gentils Utilisateurs :)</h1>
 
 	<table>
@@ -11,6 +12,7 @@
     <tr>
 	  <td style="text-align: center"><%= user.id %></td>
     <td style="text-align: center"><%= user.name %></td>
+    <td style="text-align: center"><%= link_to "Inspecter :)", user_path(user), class: "btn btn-primary" %></td>
       
 
     </tr>
@@ -18,4 +20,7 @@
     </table>
 </br>
 
-<%= link_to "Tu veux t'inscrire aussi ?", new_user_path, class: "btn btn-lg btn-primary" %>
+<%= link_to "Tu veux voir les gros Events ?", events_path, class: "btn btn-lg btn-info" %>
+
+
+</div>

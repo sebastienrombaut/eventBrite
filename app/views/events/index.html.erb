@@ -1,3 +1,4 @@
+<div align="center">
 <h1>Index de tous nos Events !! :)</h1>
 
 <h2>Events du turfu </h2>
@@ -16,7 +17,7 @@
       <td style="text-align: center"><%= event.date.strftime("%d/%m/%Y") %></td>
       <td style="text-align: center"><%= event.place %></td>
       <td style="text-align: center"> <%= link_to "Voir l'Event", event_path(event), class: "btn btn-info" %></td>
-  
+
 
     </tr>
     <% end %>
@@ -48,4 +49,6 @@
     </table>
 </br>
 
+<td style="text-align: center"> <%= link_to "Tu veux créer ton Event ? ", new_event_path, class: "btn btn-success" %></td>
+</div>
 

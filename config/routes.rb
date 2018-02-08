@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+
   get 'events/show'
 
   get 'events/index'
@@ -22,11 +24,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
 
   delete "/logout", to: "sessions#destroy"
-
-  root 'users#index'
-
-  
-
 
 
 end

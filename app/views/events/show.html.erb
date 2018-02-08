@@ -1,3 +1,4 @@
+<div align="center">
 <h1>Woouah le bel Event !</h1>
 <table>
   	<tr>
@@ -17,8 +18,8 @@
     </table>
 </br>
 
+<% unless @event.attendees.empty? %>
 <h1>Woouah les invités ! ;)</h1>
-
 
 <table>
   	<tr>
@@ -31,6 +32,9 @@
     <% end %>
     </table>
 </br>
+<% end %>
+<td style="text-align: center"> <%= link_to "Rejoindre", suscribe_event_path(@event), method: :post, confirm: 'tu es sûr?', class: "btn btn-success" %></td>
+<td style="text-align: center"> <%= link_to "Retour à l'index des Events", events_path, class: "btn btn-danger" %></td>
+<td style="text-align: center"> <%= link_to "Retour à l'index des Users", users_path, class: "btn btn-info" %></td>
 
-<td style="text-align: center"> <%= link_to "Rejoindre", suscribe_event_path(@event), method: :post, confirm: 'really?', class: "btn btn-success" %></td>
-      
+</div>  
