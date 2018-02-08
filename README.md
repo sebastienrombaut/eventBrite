@@ -1,4 +1,4 @@
 # Hello ! 
-Tout est fait et fonctionnel sur le 3.4, j'ai crée quelques users et events, tu peux t'amuser à souhaiter. 
+Tout est fait et fonctionnel sauf le 3.4, j'ai crée quelques users et events, tu peux t'amuser à souhaiter. 
 <br>
 [HEROKU](https://sebeventbrite.herokuapp.com/)
