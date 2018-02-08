@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :events
+  resources :events do
+    post 'suscribe', on: :member
+  end
 
   get '/login', to: 'sessions#new'
 
@@ -22,5 +24,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   root 'users#index'
+
+  
+
+
 
 end

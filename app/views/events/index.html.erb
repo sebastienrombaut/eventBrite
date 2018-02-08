@@ -1,5 +1,6 @@
 <h1>Index de tous nos Events !! :)</h1>
 
+<h2>Events du turfu </h2>
 	<table>
   	<tr>
   	  <th scope="col" style="text-align: center">Description de l'Event  </th>
@@ -9,14 +10,42 @@
   	</tr>
  
   	<% @events.each do |event| %>
+  	<% if event.date > Date.today %> 
     <tr>
 	  <td style="text-align: center"><%= event.description %></td>
-      <td style="text-align: center"><%= event.date %></td>
+      <td style="text-align: center"><%= event.date.strftime("%d/%m/%Y") %></td>
+      <td style="text-align: center"><%= event.place %></td>
+      <td style="text-align: center"> <%= link_to "Voir l'Event", event_path(event), class: "btn btn-info" %></td>
+  
+
+    </tr>
+    <% end %>
+    <% end %>
+    </table>
+</br>
+
+<h2>Events passés </h2>
+	<table>
+  	<tr>
+  	  <th scope="col" style="text-align: center">Description de l'Event  </th>
+   	  <th scope="col" style="text-align: center">Date  </th>
+   	  <th scope="col" style="text-align: center">Lieu  </th>
+   
+  	</tr>
+ 
+  	<% @events.each do |event| %>
+  	<% if event.date < Date.today %> 
+    <tr>
+	  <td style="text-align: center"><%= event.description %></td>
+      <td style="text-align: center"><%= event.date.strftime("%d/%m/%Y") %></td>
       <td style="text-align: center"><%= event.place %></td>
       <td style="text-align: center"> <%= link_to "Voir l'Event", event_path(event), class: "btn btn-info" %></td>
       
 
     </tr>
     <% end %>
+    <% end %>
     </table>
 </br>
+
+

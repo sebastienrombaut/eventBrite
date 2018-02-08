@@ -16,6 +16,13 @@ class EventsController < ApplicationController
 
   end
 
+  def suscribe
+    @event = Event.find(params[:id])
+    @event.attendees << current_user
+    flash[:success] = "Tu es bien ajouté à l'évent :)"
+    redirect_to @event
+  end
+
   def show
   	@event = Event.find(params[:id])
   end
@@ -23,6 +30,8 @@ class EventsController < ApplicationController
   def index
   	@events = Event.all
   end
+
+
 
   private 
 

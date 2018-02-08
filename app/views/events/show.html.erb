@@ -10,9 +10,27 @@
 	<tr>
 	  <td style="text-align: center"><%= @event.creator.name %></td>
       <td style="text-align: center"><%= @event.description %></td>
-      <td style="text-align: center"><%= @event.date %></td>
+      <td style="text-align: center"><%= @event.date.strftime("%d/%m/%Y") %></td>
       <td style="text-align: center"><%= @event.place %></td>
 
     </tr>
     </table>
 </br>
+
+<h1>Woouah les invités ! ;)</h1>
+
+
+<table>
+  	<tr>
+      <th scope="col" style="text-align: center">Prénom de l'invité </th>
+   	</tr>
+	<% @event.attendees.each do |attendee| %>
+	<tr>
+	  <td style="text-align: center"><%= attendee.name %></td>
+    </tr>
+    <% end %>
+    </table>
+</br>
+
+<td style="text-align: center"> <%= link_to "Rejoindre", suscribe_event_path(@event), method: :post, confirm: 'really?', class: "btn btn-success" %></td>
+      
