@@ -1,0 +1,21 @@
+<h1>Index des gentils Utilisateurs :)</h1>
+
+	<table>
+  	<tr>
+  	  <th scope="col" style="text-align: center">ID du user  </th>
+   	  <th scope="col" style="text-align: center">Nom  </th>
+   
+  	</tr>
+ 
+  	<% @users.each do |user| %>
+    <tr>
+	  <td style="text-align: center"><%= user.id %></td>
+    <td style="text-align: center"><%= user.name %></td>
+      
+
+    </tr>
+    <% end %>
+    </table>
+</br>
+
+<%= link_to "Tu veux t'inscrire aussi ?", new_user_path, class: "btn btn-lg btn-primary" %>

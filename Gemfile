@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 #gem 'pundit'
 
 gem 'rails'
+gem 'bcrypt',       '3.1.11'
+gem 'bootstrap', '~> 4.0.0'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'

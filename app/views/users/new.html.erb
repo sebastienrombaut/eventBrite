@@ -1,0 +1,26 @@
+<h1>Hello nouveau gentil Utilisateur 🙂</h1><br>
+
+<%= form_for @user, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= label_tag 'Nom :' %>
+  <%= f.text_field :name %>
+  <%= label_tag 'Mot de passe :' %>
+  <%= f.password_field :password %>
+  <%= label_tag 'Confirmation de mot de passe :' %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Créer" %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>

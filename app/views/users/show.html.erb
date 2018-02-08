@@ -1,0 +1,7 @@
+<h1>Ici on affiche le User <%=@user.id%> </h1>
+<h2>Nom : <%=@user.name%> </h2>
+
+<p><%= link_to "Go index", users_path, class: "btn btn-info" %></p>
+<% if @user == current_user %>
+<p><%= link_to "Deconnexion", logout_path, class: "btn btn-info", method: :delete %></p>
+<% end %>
