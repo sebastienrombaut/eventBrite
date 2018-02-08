@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'events/show'
+
+  get 'events/index'
+
+  get 'events/new'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -6,6 +12,8 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :users
+
+  resources :events
 
   get '/login', to: 'sessions#new'
 

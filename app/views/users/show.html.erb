@@ -5,3 +5,26 @@
 <% if @user == current_user %>
 <p><%= link_to "Deconnexion", logout_path, class: "btn btn-info", method: :delete %></p>
 <% end %>
+
+<h2><%=@user.name%> Tu as crée les Events suivant : </h2>
+
+<table>
+  	<tr>
+  	  <th scope="col" style="text-align: center">Description de l'Event </th>
+   	  <th scope="col" style="text-align: center">Date  </th>
+   	  <th scope="col" style="text-align: center">Lieu  </th>
+   
+  	</tr>
+ 
+  	<% @user.created_events.each do |event| %>
+    <tr>
+	<td style="text-align: center"><%= event.description %></td>
+    <td style="text-align: center"><%= event.date %></td>
+    <td style="text-align: center"><%= event.place %></td>
+
+    </tr>
+    <% end %>
+    </table>
+</br>
+      
+
