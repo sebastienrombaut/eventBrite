@@ -23,6 +23,15 @@ class EventsController < ApplicationController
     redirect_to @event
   end
 
+  def invite
+   
+    @event = Event.find(params[:id])
+    @user = User.find(params[:user])
+    @event.attendees << @user
+    flash[:success] = "Tu as bien ajouté ton pote à l'évent :)"
+    redirect_to @event
+  end
+
   def show
   	@event = Event.find(params[:id])
   end

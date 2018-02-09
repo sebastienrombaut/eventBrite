@@ -23,7 +23,7 @@
 
 <table>
   	<tr>
-      <th scope="col" style="text-align: center">Prénom de l'invité </th>
+      <th scope="col" style="text-align: center">Prénom des invités </th>
    	</tr>
 	<% @event.attendees.each do |attendee| %>
 	<tr>
@@ -33,8 +33,41 @@
     </table>
 </br>
 <% end %>
-<td style="text-align: center"> <%= link_to "Rejoindre", suscribe_event_path(@event), method: :post, confirm: 'tu es sûr?', class: "btn btn-success" %></td>
+
+<h1>Woouah la liste des pas invités ! ;)</h1>
+<table>
+    <tr>
+      <th scope="col" style="text-align: center">Nom  </th>
+   
+    </tr>
+    <%@users = User.all%>
+
+    <% @users_not_invited = @users - @event.attendees %>
+    <% @users_not_invited.each do |user| %>
+     <tr>
+
+    <td style="text-align: center"><%= user.name %></td>
+    <td> <%= button_to 'Inviter', invite_event_path(@event), method: :post,  class: "btn btn-sm btn-warning", :params => {:user => user} %> </td>
+    <% end%>
+    
+    </table>
+
+</br>
+
+
+<% test_attend = false %>
+<% @event.attendees.each do |attendee| %>
+  <% if current_user == attendee %>
+  <% test_attend = true %>
+  <%end%>
+<%end%>
+
+<% if test_attend == false %>
+  <td style="text-align: center"> <%= link_to "Rejoindre", suscribe_event_path(@event), method: :post, confirm: 'tu es sûr?', class: "btn btn-success" %></td>
+<% end %>
+
 <td style="text-align: center"> <%= link_to "Retour à l'index des Events", events_path, class: "btn btn-danger" %></td>
 <td style="text-align: center"> <%= link_to "Retour à l'index des Users", users_path, class: "btn btn-info" %></td>
+
 
 </div>  

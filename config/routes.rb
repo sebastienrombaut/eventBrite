@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :events do
     post 'suscribe', on: :member
+    post 'invite', on: :member
   end
 
   get '/login', to: 'sessions#new'
